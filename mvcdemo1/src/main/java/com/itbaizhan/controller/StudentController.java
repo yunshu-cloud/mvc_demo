@@ -48,5 +48,4 @@ public class StudentController
         Result result = new Result(true, "添加学生成功！");
         return result;
     }
-
 }
