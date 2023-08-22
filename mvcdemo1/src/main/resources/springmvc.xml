@@ -30,4 +30,8 @@
         <property name="prefix" value="/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+
+    <!-- 放行静态资源 -->
+    <mvc:default-servlet-handler />
+
 </beans>
