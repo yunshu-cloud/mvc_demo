@@ -51,6 +51,11 @@
             <!-- 拦截器对象 -->
             <bean class="com.itbaizhan.interceptor.MyInterceptor"/>
         </mvc:interceptor>
+            <!-- 敏感词拦截器 -->
+            <mvc:interceptor>
+                <mvc:mapping path="/**"/>
+                <bean class="com.itbaizhan.interceptor.SensitiveWordInterceptor"></bean>
+            </mvc:interceptor>
     </mvc:interceptors>
 
 

@@ -120,10 +120,27 @@ public class MyController1
 //    }
 
 
-
+    /**
+     * 拦截器
+     * @return
+     */
     @RequestMapping("/interceptor")
     public String interceptor(){
         System.out.println("控制器方法");
         return "result";
     }
+
+
+    /**
+     * 拦截器实例 过滤敏感词
+     * @param model
+     * @return
+     */
+    @RequestMapping("/sensitive")
+    public String m2(Model model){
+        model.addAttribute("name","家庭暴力应该制止");
+        return "result";
+    }
+
+
 }
