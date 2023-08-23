@@ -6,6 +6,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -103,4 +104,29 @@ public class UploadController
         }
         return "index";
     }
+
+
+    @RequestMapping("/fileUpload4")
+//不进行页面跳转
+    @ResponseBody
+    public String upload4(HttpServletRequest request, MultipartFile file) throws Exception {
+        // 创建文件夹，存放上传文件。
+        String realPath = request.getSession().getServletContext().getRealPath("/upload");
+        File dir = new File(realPath);
+        if (!dir.exists()){
+            dir.mkdirs();
+        }
+
+
+        // 拿到上传文件名
+        String filename = file.getOriginalFilename();
+        filename = UUID.randomUUID()+"_"+filename;
+        // 创建空文件
+        File newFile = new File(dir, filename);
+        // 将上传的文件写到空文件中
+        file.transferTo(newFile);
+        // 返回文件的路径
+        return "/upload/"+filename;
+    }
+
 }
