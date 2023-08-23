@@ -42,4 +42,16 @@
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
 
+
+    <!-- 配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 配置拦截器的作用路径-->
+            <mvc:mapping path="/**"/>
+            <!-- 拦截器对象 -->
+            <bean class="com.itbaizhan.interceptor.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
 </beans>

@@ -118,4 +118,12 @@ public class MyController1
 //        model.addAttribute("msg",ex);
 //        return "error";
 //    }
+
+
+
+    @RequestMapping("/interceptor")
+    public String interceptor(){
+        System.out.println("控制器方法");
+        return "result";
+    }
 }
