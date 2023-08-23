@@ -3,9 +3,7 @@ package com.itbaizhan.controller;
 import com.itbaizhan.domain.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -140,6 +138,15 @@ public class MyController1
     public String m2(Model model){
         model.addAttribute("name","家庭暴力应该制止");
         return "result";
+    }
+
+
+    @RequestMapping("/cross")
+    @ResponseBody
+    @CrossOrigin("http://localhost:8888")
+    public String cross(){
+        System.out.println("测试跨域请求");
+        return "success";
     }
 
 
