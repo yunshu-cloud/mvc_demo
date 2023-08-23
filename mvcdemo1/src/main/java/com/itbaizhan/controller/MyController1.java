@@ -2,6 +2,8 @@ package com.itbaizhan.controller;
 
 import com.itbaizhan.domain.Student;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -90,5 +92,30 @@ public class MyController1
         model.put("name","wangzhixiong");
         modelAndView.setViewName("wang");
         return modelAndView;
+    }
+
+
+    /**
+     * 测试空指针异常
+     * @return
+     */
+    @RequestMapping("/error")
+    public String error(){
+        String str = null;
+        str.length();
+        return "index";
+    }
+
+    /**
+     * 异常处理方法 处理空指针异常
+     * @param ex 异常对象
+     * @param model 模型对象
+     * @return
+     */
+    @ExceptionHandler(java.lang.NullPointerException.class)
+    public String exceptionHandler(Exception ex, Model model){
+        // 向模型中添加异常对象
+        model.addAttribute("msg",ex);
+        return "error";
     }
 }
