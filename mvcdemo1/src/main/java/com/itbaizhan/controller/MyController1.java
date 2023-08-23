@@ -112,10 +112,10 @@ public class MyController1
      * @param model 模型对象
      * @return
      */
-    @ExceptionHandler(java.lang.NullPointerException.class)
-    public String exceptionHandler(Exception ex, Model model){
-        // 向模型中添加异常对象
-        model.addAttribute("msg",ex);
-        return "error";
-    }
+//    @ExceptionHandler(java.lang.NullPointerException.class)
+//    public String exceptionHandler(Exception ex, Model model){
+//        // 向模型中添加异常对象
+//        model.addAttribute("msg",ex);
+//        return "error";
+//    }
 }
